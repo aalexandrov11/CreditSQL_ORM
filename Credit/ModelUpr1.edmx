@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CreditModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="category_no" />
+          </Key>
+          <Property Name="category_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_desc" Type="varchar" MaxLength="31" Nullable="false" />
+          <Property Name="category_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="charge">
+          <Key>
+            <PropertyRef Name="charge_no" />
+          </Key>
+          <Property Name="charge_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_no" Type="int" Nullable="false" />
+          <Property Name="provider_no" Type="int" Nullable="false" />
+          <Property Name="category_no" Type="int" Nullable="false" />
+          <Property Name="charge_dt" Type="datetime" Nullable="false" />
+          <Property Name="charge_amt" Type="money" Nullable="false" />
+          <Property Name="statement_no" Type="int" Nullable="false" />
+          <Property Name="charge_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="corporation">
+          <Key>
+            <PropertyRef Name="corp_no" />
+          </Key>
+          <Property Name="corp_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="corp_name" Type="varchar" MaxLength="31" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="state_prov" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="country" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="mail_code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="phone_no" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="expr_dt" Type="datetime" Nullable="false" />
+          <Property Name="region_no" Type="int" Nullable="false" />
+          <Property Name="corp_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="member_no" />
+          </Key>
+          <Property Name="member_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="middleinitial" Type="char" MaxLength="1" />
+          <Property Name="street" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="state_prov" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="country" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="mail_code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="phone_no" Type="char" MaxLength="13" />
+          <Property Name="photograph" Type="image" />
+          <Property Name="issue_dt" Type="datetime" Nullable="false" />
+          <Property Name="expr_dt" Type="datetime" Nullable="false" />
+          <Property Name="region_no" Type="int" Nullable="false" />
+          <Property Name="corp_no" Type="int" />
+          <Property Name="prev_balance" Type="money" />
+          <Property Name="curr_balance" Type="money" />
+          <Property Name="member_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member2">
+          <Key>
+            <PropertyRef Name="member_no" />
+          </Key>
+          <Property Name="member_no" Type="int" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="middleinitial" Type="char" MaxLength="1" />
+          <Property Name="street" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="state_prov" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="country" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="mail_code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="phone_no" Type="char" MaxLength="13" />
+          <Property Name="photograph" Type="image" />
+          <Property Name="issue_dt" Type="datetime" Nullable="false" />
+          <Property Name="expr_dt" Type="datetime" Nullable="false" />
+          <Property Name="region_no" Type="int" Nullable="false" />
+          <Property Name="corp_no" Type="int" />
+          <Property Name="prev_balance" Type="money" />
+          <Property Name="curr_balance" Type="money" />
+          <Property Name="member_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_no" />
+          </Key>
+          <Property Name="payment_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_no" Type="int" Nullable="false" />
+          <Property Name="payment_dt" Type="datetime" Nullable="false" />
+          <Property Name="payment_amt" Type="money" Nullable="false" />
+          <Property Name="statement_no" Type="int" />
+          <Property Name="payment_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="provider">
+          <Key>
+            <PropertyRef Name="provider_no" />
+          </Key>
+          <Property Name="provider_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="provider_name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="state_prov" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="mail_code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="country" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="phone_no" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="issue_dt" Type="datetime" Nullable="false" />
+          <Property Name="expr_dt" Type="datetime" Nullable="false" />
+          <Property Name="region_no" Type="int" Nullable="false" />
+          <Property Name="provider_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="region_no" />
+          </Key>
+          <Property Name="region_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="region_name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="state_prov" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="country" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="mail_code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="phone_no" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="region_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="statement">
+          <Key>
+            <PropertyRef Name="statement_no" />
+          </Key>
+          <Property Name="statement_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_no" Type="int" Nullable="false" />
+          <Property Name="statement_dt" Type="datetime" Nullable="false" />
+          <Property Name="due_dt" Type="datetime" Nullable="false" />
+          <Property Name="statement_amt" Type="money" Nullable="false" />
+          <Property Name="statement_code" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="status_code" />
+          </Key>
+          <Property Name="status_code" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="status_desc" Type="varchar" MaxLength="31" Nullable="false" />
+        </EntityType>
+        <Association Name="charge_category_link">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="category_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="category_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_provider_link">
+          <End Role="provider" Type="Self.provider" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provider">
+              <PropertyRef Name="provider_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="provider_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_statement_link">
+          <End Role="statement" Type="Self.statement" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statement">
+              <PropertyRef Name="statement_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="statement_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="corporation_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="corporation" Type="Self.corporation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="corporation">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_corporation_link">
+          <End Role="corporation" Type="Self.corporation" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="corporation">
+              <PropertyRef Name="corp_no" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="corp_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="payment_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provider_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="provider" Type="Self.provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="provider">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="statement_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="statement" Type="Self.statement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="statement">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CreditModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="charge" EntityType="Self.charge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="corporation" EntityType="Self.corporation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member2" EntityType="Self.member2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provider" EntityType="Self.provider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statement" EntityType="Self.statement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="charge_category_link" Association="Self.charge_category_link">
+            <End Role="category" EntitySet="category" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_member_link" Association="Self.charge_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_provider_link" Association="Self.charge_provider_link">
+            <End Role="provider" EntitySet="provider" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_statement_link" Association="Self.charge_statement_link">
+            <End Role="statement" EntitySet="statement" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="corporation_region_link" Association="Self.corporation_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="corporation" EntitySet="corporation" />
+          </AssociationSet>
+          <AssociationSet Name="member_corporation_link" Association="Self.member_corporation_link">
+            <End Role="corporation" EntitySet="corporation" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="member_region_link" Association="Self.member_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="payment_member_link" Association="Self.payment_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+          <AssociationSet Name="provider_region_link" Association="Self.provider_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="provider" EntitySet="provider" />
+          </AssociationSet>
+          <AssociationSet Name="statement_member_link" Association="Self.statement_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="statement" EntitySet="statement" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CreditModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="category_no" />
+          </Key>
+          <Property Name="category_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_desc" Type="String" MaxLength="31" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="charge" Relationship="Self.charge_category_link" FromRole="category" ToRole="charge" />
+        </EntityType>
+        <EntityType Name="charge">
+          <Key>
+            <PropertyRef Name="charge_no" />
+          </Key>
+          <Property Name="charge_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_no" Type="Int32" Nullable="false" />
+          <Property Name="provider_no" Type="Int32" Nullable="false" />
+          <Property Name="category_no" Type="Int32" Nullable="false" />
+          <Property Name="charge_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="charge_amt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="statement_no" Type="Int32" Nullable="false" />
+          <Property Name="charge_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="category" Relationship="Self.charge_category_link" FromRole="charge" ToRole="category" />
+          <NavigationProperty Name="member" Relationship="Self.charge_member_link" FromRole="charge" ToRole="member" />
+          <NavigationProperty Name="provider" Relationship="Self.charge_provider_link" FromRole="charge" ToRole="provider" />
+          <NavigationProperty Name="statement" Relationship="Self.charge_statement_link" FromRole="charge" ToRole="statement" />
+        </EntityType>
+        <EntityType Name="corporation">
+          <Key>
+            <PropertyRef Name="corp_no" />
+          </Key>
+          <Property Name="corp_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="corp_name" Type="String" MaxLength="31" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_prov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mail_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="expr_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="region_no" Type="Int32" Nullable="false" />
+          <Property Name="corp_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="region" Relationship="Self.corporation_region_link" FromRole="corporation" ToRole="region" />
+          <NavigationProperty Name="member" Relationship="Self.member_corporation_link" FromRole="corporation" ToRole="member" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="member_no" />
+          </Key>
+          <Property Name="member_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middleinitial" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_prov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mail_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="photograph" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="issue_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expr_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="region_no" Type="Int32" Nullable="false" />
+          <Property Name="corp_no" Type="Int32" />
+          <Property Name="prev_balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="curr_balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="member_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="charge" Relationship="Self.charge_member_link" FromRole="member" ToRole="charge" />
+          <NavigationProperty Name="corporation" Relationship="Self.member_corporation_link" FromRole="member" ToRole="corporation" />
+          <NavigationProperty Name="region" Relationship="Self.member_region_link" FromRole="member" ToRole="region" />
+          <NavigationProperty Name="payment" Relationship="Self.payment_member_link" FromRole="member" ToRole="payment" />
+          <NavigationProperty Name="statement" Relationship="Self.statement_member_link" FromRole="member" ToRole="statement" />
+        </EntityType>
+        <EntityType Name="member2">
+          <Key>
+            <PropertyRef Name="member_no" />
+          </Key>
+          <Property Name="member_no" Type="Int32" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middleinitial" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_prov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mail_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="photograph" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="issue_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expr_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="region_no" Type="Int32" Nullable="false" />
+          <Property Name="corp_no" Type="Int32" />
+          <Property Name="prev_balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="curr_balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="member_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_no" />
+          </Key>
+          <Property Name="payment_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_no" Type="Int32" Nullable="false" />
+          <Property Name="payment_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="payment_amt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="statement_no" Type="Int32" />
+          <Property Name="payment_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.payment_member_link" FromRole="payment" ToRole="member" />
+        </EntityType>
+        <EntityType Name="provider">
+          <Key>
+            <PropertyRef Name="provider_no" />
+          </Key>
+          <Property Name="provider_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="provider_name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_prov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mail_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="issue_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expr_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="region_no" Type="Int32" Nullable="false" />
+          <Property Name="provider_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="charge" Relationship="Self.charge_provider_link" FromRole="provider" ToRole="charge" />
+          <NavigationProperty Name="region" Relationship="Self.provider_region_link" FromRole="provider" ToRole="region" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="region_no" />
+          </Key>
+          <Property Name="region_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="region_name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_prov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mail_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="region_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="corporation" Relationship="Self.corporation_region_link" FromRole="region" ToRole="corporation" />
+          <NavigationProperty Name="member" Relationship="Self.member_region_link" FromRole="region" ToRole="member" />
+          <NavigationProperty Name="provider" Relationship="Self.provider_region_link" FromRole="region" ToRole="provider" />
+        </EntityType>
+        <EntityType Name="statement">
+          <Key>
+            <PropertyRef Name="statement_no" />
+          </Key>
+          <Property Name="statement_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_no" Type="Int32" Nullable="false" />
+          <Property Name="statement_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="due_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="statement_amt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="statement_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="charge" Relationship="Self.charge_statement_link" FromRole="statement" ToRole="charge" />
+          <NavigationProperty Name="member" Relationship="Self.statement_member_link" FromRole="statement" ToRole="member" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="status_code" />
+          </Key>
+          <Property Name="status_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="status_desc" Type="String" MaxLength="31" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="charge_category_link">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="category_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="category_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_provider_link">
+          <End Role="provider" Type="Self.provider" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provider">
+              <PropertyRef Name="provider_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="provider_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="charge_statement_link">
+          <End Role="statement" Type="Self.statement" Multiplicity="1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statement">
+              <PropertyRef Name="statement_no" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="statement_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="corporation_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="corporation" Type="Self.corporation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="corporation">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_corporation_link">
+          <End Role="corporation" Type="Self.corporation" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="corporation">
+              <PropertyRef Name="corp_no" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="corp_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="payment_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="statement_member_link">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="statement" Type="Self.statement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="member_no" />
+            </Principal>
+            <Dependent Role="statement">
+              <PropertyRef Name="member_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provider_region_link">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="provider" Type="Self.provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="region_no" />
+            </Principal>
+            <Dependent Role="provider">
+              <PropertyRef Name="region_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="category" EntityType="Self.category" />
+          <EntitySet Name="charge" EntityType="Self.charge" />
+          <EntitySet Name="corporation" EntityType="Self.corporation" />
+          <EntitySet Name="member" EntityType="Self.member" />
+          <EntitySet Name="member2" EntityType="Self.member2" />
+          <EntitySet Name="payment" EntityType="Self.payment" />
+          <EntitySet Name="provider" EntityType="Self.provider" />
+          <EntitySet Name="region" EntityType="Self.region" />
+          <EntitySet Name="statement" EntityType="Self.statement" />
+          <EntitySet Name="status" EntityType="Self.status" />
+          <AssociationSet Name="charge_category_link" Association="Self.charge_category_link">
+            <End Role="category" EntitySet="category" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_member_link" Association="Self.charge_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_provider_link" Association="Self.charge_provider_link">
+            <End Role="provider" EntitySet="provider" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="charge_statement_link" Association="Self.charge_statement_link">
+            <End Role="statement" EntitySet="statement" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="corporation_region_link" Association="Self.corporation_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="corporation" EntitySet="corporation" />
+          </AssociationSet>
+          <AssociationSet Name="member_corporation_link" Association="Self.member_corporation_link">
+            <End Role="corporation" EntitySet="corporation" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="member_region_link" Association="Self.member_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="payment_member_link" Association="Self.payment_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+          <AssociationSet Name="statement_member_link" Association="Self.statement_member_link">
+            <End Role="member" EntitySet="member" />
+            <End Role="statement" EntitySet="statement" />
+          </AssociationSet>
+          <AssociationSet Name="provider_region_link" Association="Self.provider_region_link">
+            <End Role="region" EntitySet="region" />
+            <End Role="provider" EntitySet="provider" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CreditModelStoreContainer" CdmEntityContainer="TestDbContext">
+          <EntitySetMapping Name="category">
+            <EntityTypeMapping TypeName="CreditModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="category_no" ColumnName="category_no" />
+                <ScalarProperty Name="category_desc" ColumnName="category_desc" />
+                <ScalarProperty Name="category_code" ColumnName="category_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="charge">
+            <EntityTypeMapping TypeName="CreditModel.charge">
+              <MappingFragment StoreEntitySet="charge">
+                <ScalarProperty Name="charge_no" ColumnName="charge_no" />
+                <ScalarProperty Name="member_no" ColumnName="member_no" />
+                <ScalarProperty Name="provider_no" ColumnName="provider_no" />
+                <ScalarProperty Name="category_no" ColumnName="category_no" />
+                <ScalarProperty Name="charge_dt" ColumnName="charge_dt" />
+                <ScalarProperty Name="charge_amt" ColumnName="charge_amt" />
+                <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+                <ScalarProperty Name="charge_code" ColumnName="charge_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="corporation">
+            <EntityTypeMapping TypeName="CreditModel.corporation">
+              <MappingFragment StoreEntitySet="corporation">
+                <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+                <ScalarProperty Name="corp_name" ColumnName="corp_name" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+                <ScalarProperty Name="region_no" ColumnName="region_no" />
+                <ScalarProperty Name="corp_code" ColumnName="corp_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="CreditModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="member_no" ColumnName="member_no" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="middleinitial" ColumnName="middleinitial" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="photograph" ColumnName="photograph" />
+                <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+                <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+                <ScalarProperty Name="region_no" ColumnName="region_no" />
+                <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+                <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+                <ScalarProperty Name="curr_balance" ColumnName="curr_balance" />
+                <ScalarProperty Name="member_code" ColumnName="member_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member2">
+            <EntityTypeMapping TypeName="CreditModel.member2">
+              <MappingFragment StoreEntitySet="member2">
+                <ScalarProperty Name="member_no" ColumnName="member_no" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="middleinitial" ColumnName="middleinitial" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="photograph" ColumnName="photograph" />
+                <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+                <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+                <ScalarProperty Name="region_no" ColumnName="region_no" />
+                <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+                <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+                <ScalarProperty Name="curr_balance" ColumnName="curr_balance" />
+                <ScalarProperty Name="member_code" ColumnName="member_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment">
+            <EntityTypeMapping TypeName="CreditModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="payment_no" ColumnName="payment_no" />
+                <ScalarProperty Name="member_no" ColumnName="member_no" />
+                <ScalarProperty Name="payment_dt" ColumnName="payment_dt" />
+                <ScalarProperty Name="payment_amt" ColumnName="payment_amt" />
+                <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+                <ScalarProperty Name="payment_code" ColumnName="payment_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provider">
+            <EntityTypeMapping TypeName="CreditModel.provider">
+              <MappingFragment StoreEntitySet="provider">
+                <ScalarProperty Name="provider_no" ColumnName="provider_no" />
+                <ScalarProperty Name="provider_name" ColumnName="provider_name" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+                <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+                <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+                <ScalarProperty Name="region_no" ColumnName="region_no" />
+                <ScalarProperty Name="provider_code" ColumnName="provider_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="region">
+            <EntityTypeMapping TypeName="CreditModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="region_no" ColumnName="region_no" />
+                <ScalarProperty Name="region_name" ColumnName="region_name" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="region_code" ColumnName="region_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statement">
+            <EntityTypeMapping TypeName="CreditModel.statement">
+              <MappingFragment StoreEntitySet="statement">
+                <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+                <ScalarProperty Name="member_no" ColumnName="member_no" />
+                <ScalarProperty Name="statement_dt" ColumnName="statement_dt" />
+                <ScalarProperty Name="due_dt" ColumnName="due_dt" />
+                <ScalarProperty Name="statement_amt" ColumnName="statement_amt" />
+                <ScalarProperty Name="statement_code" ColumnName="statement_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="CreditModel.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="status_code" ColumnName="status_code" />
+                <ScalarProperty Name="status_desc" ColumnName="status_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

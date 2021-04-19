@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28870b9f8d6042848aa973fb3e22dc7c" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="CreditModel.category" Width="1.5" PointX="7.125" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.charge" Width="1.5" PointX="9.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.corporation" Width="1.5" PointX="2.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.member" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.member2" Width="1.5" PointX="11.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.payment" Width="1.5" PointX="7.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.provider" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.region" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.statement" Width="1.5" PointX="7.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditModel.status" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CreditModel.charge_category_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.charge_member_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.charge_provider_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.charge_statement_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.corporation_region_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.member_corporation_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.member_region_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.payment_member_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.statement_member_link" ManuallyRouted="false" />
+        <AssociationConnector Association="CreditModel.provider_region_link" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

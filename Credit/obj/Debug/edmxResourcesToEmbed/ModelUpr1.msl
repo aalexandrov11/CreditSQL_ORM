@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CreditModelStoreContainer" CdmEntityContainer="TestDbContext">
+    <EntitySetMapping Name="category">
+      <EntityTypeMapping TypeName="CreditModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="category_no" ColumnName="category_no" />
+          <ScalarProperty Name="category_desc" ColumnName="category_desc" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="charge">
+      <EntityTypeMapping TypeName="CreditModel.charge">
+        <MappingFragment StoreEntitySet="charge">
+          <ScalarProperty Name="charge_no" ColumnName="charge_no" />
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="provider_no" ColumnName="provider_no" />
+          <ScalarProperty Name="category_no" ColumnName="category_no" />
+          <ScalarProperty Name="charge_dt" ColumnName="charge_dt" />
+          <ScalarProperty Name="charge_amt" ColumnName="charge_amt" />
+          <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+          <ScalarProperty Name="charge_code" ColumnName="charge_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="corporation">
+      <EntityTypeMapping TypeName="CreditModel.corporation">
+        <MappingFragment StoreEntitySet="corporation">
+          <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+          <ScalarProperty Name="corp_name" ColumnName="corp_name" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+          <ScalarProperty Name="region_no" ColumnName="region_no" />
+          <ScalarProperty Name="corp_code" ColumnName="corp_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member">
+      <EntityTypeMapping TypeName="CreditModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="middleinitial" ColumnName="middleinitial" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="photograph" ColumnName="photograph" />
+          <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+          <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+          <ScalarProperty Name="region_no" ColumnName="region_no" />
+          <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+          <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+          <ScalarProperty Name="curr_balance" ColumnName="curr_balance" />
+          <ScalarProperty Name="member_code" ColumnName="member_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member2">
+      <EntityTypeMapping TypeName="CreditModel.member2">
+        <MappingFragment StoreEntitySet="member2">
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="middleinitial" ColumnName="middleinitial" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="photograph" ColumnName="photograph" />
+          <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+          <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+          <ScalarProperty Name="region_no" ColumnName="region_no" />
+          <ScalarProperty Name="corp_no" ColumnName="corp_no" />
+          <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+          <ScalarProperty Name="curr_balance" ColumnName="curr_balance" />
+          <ScalarProperty Name="member_code" ColumnName="member_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment">
+      <EntityTypeMapping TypeName="CreditModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="payment_no" ColumnName="payment_no" />
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="payment_dt" ColumnName="payment_dt" />
+          <ScalarProperty Name="payment_amt" ColumnName="payment_amt" />
+          <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+          <ScalarProperty Name="payment_code" ColumnName="payment_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provider">
+      <EntityTypeMapping TypeName="CreditModel.provider">
+        <MappingFragment StoreEntitySet="provider">
+          <ScalarProperty Name="provider_no" ColumnName="provider_no" />
+          <ScalarProperty Name="provider_name" ColumnName="provider_name" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+          <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="issue_dt" ColumnName="issue_dt" />
+          <ScalarProperty Name="expr_dt" ColumnName="expr_dt" />
+          <ScalarProperty Name="region_no" ColumnName="region_no" />
+          <ScalarProperty Name="provider_code" ColumnName="provider_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="region">
+      <EntityTypeMapping TypeName="CreditModel.region">
+        <MappingFragment StoreEntitySet="region">
+          <ScalarProperty Name="region_no" ColumnName="region_no" />
+          <ScalarProperty Name="region_name" ColumnName="region_name" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_prov" ColumnName="state_prov" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="mail_code" ColumnName="mail_code" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="region_code" ColumnName="region_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statement">
+      <EntityTypeMapping TypeName="CreditModel.statement">
+        <MappingFragment StoreEntitySet="statement">
+          <ScalarProperty Name="statement_no" ColumnName="statement_no" />
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="statement_dt" ColumnName="statement_dt" />
+          <ScalarProperty Name="due_dt" ColumnName="due_dt" />
+          <ScalarProperty Name="statement_amt" ColumnName="statement_amt" />
+          <ScalarProperty Name="statement_code" ColumnName="statement_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="CreditModel.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="status_code" ColumnName="status_code" />
+          <ScalarProperty Name="status_desc" ColumnName="status_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

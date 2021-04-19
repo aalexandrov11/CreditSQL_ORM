@@ -1,0 +1,10 @@
+C:\Users\A\source\repos\Credit\Credit\bin\Debug\Credit.exe.config
+C:\Users\A\source\repos\Credit\Credit\bin\Debug\Credit.exe
+C:\Users\A\source\repos\Credit\Credit\bin\Debug\Credit.pdb
+C:\Users\A\source\repos\Credit\Credit\obj\Debug\Credit.csprojAssemblyReference.cache
+C:\Users\A\source\repos\Credit\Credit\obj\Debug\Credit.csproj.CoreCompileInputs.cache
+C:\Users\A\source\repos\Credit\Credit\obj\Debug\Credit.exe
+C:\Users\A\source\repos\Credit\Credit\obj\Debug\Credit.pdb
+C:\Users\A\source\repos\Credit\Credit\bin\Debug\EntityFramework.dll
+C:\Users\A\source\repos\Credit\Credit\bin\Debug\EntityFramework.xml
+C:\Users\A\source\repos\Credit\Credit\obj\Debug\Credit.csproj.CopyComplete
